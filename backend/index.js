@@ -65,8 +65,8 @@ app.post('/api/notes', (request, response) => {
   notes.concat(note)
 })
 
-app.get('*', (request, response) => {
-  response.sendFile(__dirname + '/dist/index.html')
+app.get('/*splat', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'))
 })
 
 const PORT = process.env.PORT || 3001
