@@ -64,6 +64,11 @@ app.post('/api/notes', (request, response) => {
   }
   notes.concat(note)
 })
+
+app.get('*', (request, response) => {
+  response.sendFile(__dirname + '/dist/index.html')
+})
+
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
